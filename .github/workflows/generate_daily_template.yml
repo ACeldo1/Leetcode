@@ -1,0 +1,52 @@
+name: Daily Challenge Template Generator
+run-name: Generating template for ${{github.actor}} for daily challenge!
+on:
+	schedule:
+		- cron: '0 0 * * *' # runs everyday to generate a template
+env:
+	DAILY_CHALLENGE_PATH = "'/Daily_Challenge'"
+	TEMPLATE_PATH = "${{DAILY_CHALLENGE_PATH}}/Template.md"
+	LEETCODE: "https://leetcode.com/"
+jobs:
+	update:
+		runs-on: ubuntu-latest
+		steps:
+			- name: Get source
+				uses: actions/checkout@main
+			- name: Get Python
+				id: get-python
+				uses: actions/setup-python@v4
+				with:
+					python-version: latest
+					cache: "pip"
+	
+			- name: Print starting message
+				run:
+					echo "Creating template for daily challenge"
+			
+			- name: Install Python dependencies
+				id: install-python-dependencies
+				run: python -m pip install -r requirements.txt
+			
+			- name: Set datetime envs
+				id: set-datetime-envs
+				run:
+					echo "YEAR=$(date+'%Y')" >> $YEAR
+					echo "MONTH=$(date+'%M')" >> $MONTH
+					echo "DAY=$(date+'%d')" >> $DAY
+			
+			- name: Create file for cloning
+				run: 
+					echo "CURRENT_PATH=$DAILY_CHALLENGE_PATH/$YEAR/$MONTH/" >> $CURRENT_PATH
+					echo "FILE_NAME='$DAY. $CHALLENGE_NAME.md'" >> $FILE_NAME
+					cp $CURRENT_PATH $TEMPLATE_PATH
+					mv Template.md $FILE_NAME
+					echo "CLONE_PATH=$CURRENT_PATH$FILE_NAME" >> $CLONE_PATH
+			
+			- name: Clone Daily Challenge template
+				run: python generate_daily_challenge_template.py --path
+				
+			- name: Print completion message
+				run:
+					echo "🍏 This job's status is ${{ job.status }}."
+			
