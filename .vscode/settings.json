@@ -1,0 +1,23 @@
+{
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.packageIndexDepths": [
+    {
+      "name": "sklearn",
+      "depth": 2
+    },
+    {
+      "name": "matplotlib",
+      "depth": 2
+    },
+    {
+      "name": "scipy",
+      "depth": 2
+    },
+    {
+      "name": "django",
+      "depth": 2
+    }
+  ],
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.autoImportCompletions": true
+}

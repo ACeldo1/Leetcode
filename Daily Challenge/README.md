@@ -1,8 +1,5 @@
-# Daily Leetcode Challenge Template
-*Template for Daily Leetcode Challenge .md files*
-
 ## Table of Contents
-1. [Problem](#Problem)
+1. [{{ question_name }}](#{{ question_name }})
 	- Link
 	- Description
 	- Test Cases
@@ -12,17 +9,19 @@
 	- Code
 3. [Notes](#Notes)
 
-## Problem
-#### Link to Problem
+## {{ question_name }}
+#### {{ link_to_problem }}
+## {{ date }}
 
 ### Description
-	* [text with description of problem]
-	* [test cases]
-	* [related topics]
+	* {{ difficulty }}
+	* {{ description }}
+	* {{ test_cases }}
+	* {{ related_topics }}
 	
 ### Code
-	* [explanation]
-	* [code block]
+	* {{ explanation }}
+	* '''{{ code_block }}'''
 
 ### Notes
 	* 

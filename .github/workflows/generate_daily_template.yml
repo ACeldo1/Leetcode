@@ -4,9 +4,8 @@ on:
 	schedule:
 		- cron: '0 0 * * *' # runs everyday to generate a template
 env:
-	DAILY_CHALLENGE_PATH = "'/Daily_Challenge'"
-	TEMPLATE_PATH = "${{DAILY_CHALLENGE_PATH}}/Template.md"
-	LEETCODE: "https://leetcode.com/"
+	DAILY_CHALLENGE = "'/Daily Challenge'"
+	TEMPLATE_PATH = "${{DAILY_CHALLENGE}}/README.md"
 jobs:
 	update:
 		runs-on: ubuntu-latest
@@ -37,16 +36,21 @@ jobs:
 			
 			- name: Create file for cloning
 				run: 
-					echo "CURRENT_PATH=$DAILY_CHALLENGE_PATH/$YEAR/$MONTH/" >> $CURRENT_PATH
-					echo "FILE_NAME='$DAY. $CHALLENGE_NAME.md'" >> $FILE_NAME
+					echo "CURRENT_PATH=$DAILY_CHALLENGE/$YEAR/$MONTH/$DAY." >> $CURRENT_PATH
 					cp $CURRENT_PATH $TEMPLATE_PATH
-					mv Template.md $FILE_NAME
-					echo "CLONE_PATH=$CURRENT_PATH$FILE_NAME" >> $CLONE_PATH
 			
-			- name: Clone Daily Challenge template
-				run: python generate_daily_challenge_template.py --path
+			- name: Modify cloned template
+				run: 
+					python generate_daily_challenge_template.py --daily_challenge ${{env.DAILY_CHALLENGE}} --template_path ${{env.TEMPLATE_PATH}} >> 
 				
+			- name: Rename cloned file according to pattern
+			
+			- name: Commit changes
+				uses:
+				with:
+					commit_message: Generated cloned template
+					file_pattern: $TEMPLATE_PATH
+
 			- name: Print completion message
 				run:
 					echo "🍏 This job's status is ${{ job.status }}."
-			
