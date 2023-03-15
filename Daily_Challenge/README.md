@@ -10,7 +10,7 @@
 3. [Notes](#Notes)
 
 ## {{ question_name }}
-#### {{ link_to_problem }}
+#### <a href="{{ link_to_problem }}"> Link to Problem</a>
 ## {{ date }}
 
 ### Description
