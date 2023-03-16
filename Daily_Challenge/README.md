@@ -14,7 +14,7 @@
 ## {{ date }}
 
 ### Description
-Difficulty: {{ difficulty }}
+Difficulty: <p style="background-color:{{ difficulty_color }}">{{ difficulty }}</p>
 
 {{ description }}
 
