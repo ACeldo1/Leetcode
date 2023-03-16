@@ -14,10 +14,14 @@
 ## {{ date }}
 
 ### Description
-	* {{ difficulty }}
-	* {{ description }}
-	* {{ test_cases }}
-	* {{ related_topics }}
+Difficulty: {{ difficulty }}
+
+{{ description }}
+
+Topic Tags:
+{% for topic in related_topics %}
+	{{ topic.name }}
+{% endfor %}
 	
 ### Code
 	* {{ explanation }}

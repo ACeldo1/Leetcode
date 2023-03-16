@@ -22,7 +22,7 @@ def generate_readme(
     link_to_problem=LEETCODE_BASE_URL+link,
     difficulty=leetcode_dict["difficulty"],
     description=leetcode_dict["content"],
-    test_cases=leetcode_dict["exampleTestcases"],
+    related_topics=leetcode_dict["topicTags"]
     explanation="",
     code_block=""
   )

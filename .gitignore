@@ -1,4 +1,6 @@
 .config.yml
+__pycache__/
+.vscode
 
 # Mac OS
 .DS_Store
