@@ -1,5 +1,5 @@
 ## Table of Contents
-1. [{{ question_name }}](#{{ question_name_link }})
+1. [{{ question_name }}](#{{ question_name }})
 	- Link
 	- Description
 	- Test Cases
@@ -14,18 +14,14 @@
 ## {{ date }}
 
 ### Description
-Difficulty: {{ difficulty }}
-
-{{ description }}
-
-Topic Tags:
-{% for topic in related_topics %}
-	{{ topic.name }}
-{% endfor %}
+	* {{ difficulty }}
+	* {{ description }}
+	* {{ test_cases }}
+	* {{ related_topics }}
 	
 ### Code
-	{{ explanation }}
-	'''{{ code_block }}'''
+	* {{ explanation }}
+	* '''{{ code_block }}'''
 
 ### Notes
 	* 
