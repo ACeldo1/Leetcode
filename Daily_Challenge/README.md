@@ -18,10 +18,7 @@ Difficulty: {{ difficulty }}
 
 {{ description }}
 
-Topic Tags:
-{% for topic in related_topics %}
-	{{ topic.name }}
-{% endfor %}
+Topic Tags: {% for topic in related_topics %} {{ topic.name }} {% endfor %}
 	
 ### Code
 	{{ explanation }}

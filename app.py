@@ -21,14 +21,7 @@ def main():
   question_name = question_dict["title"]
   
   # build out file path
-  # FILE_PATH = r'{build_file_path(year, month, day, question_name)}'
   FILE_PATH = build_file_path(curr_date, question_name)
-  
-  # try:  
-  #   shutil.copy(README_PATH,FILE_DIR) # clone file with template path
-  #   os.rename(FILE_DIR+"/README.md",FILE_PATH) # rename cloned file
-  # except FileExistsError:
-  #   print("File already exists!")
 
   # write out generated template
   rendered_template = generate_readme(README_PATH, curr_date, link, question_name, question_dict)
