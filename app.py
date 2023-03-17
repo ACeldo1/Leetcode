@@ -14,7 +14,7 @@ def main():
   # get leetcode information 
   leetcode_dict = lc_executor().get_leetcode_dict() 
   
-  # get necessary variables
+  # get necessary variables from the object with leetcode question info
   date, link, question_dict = leetcode_dict["date"].split("-"), leetcode_dict["link"], leetcode_dict["question"]
   year, month, day = int(date[0]), int(date[1]), int(date[2])
   curr_date = datetime(year,month,day)
@@ -22,6 +22,8 @@ def main():
   
   # build out file path
   FILE_PATH = build_file_path(curr_date, question_name)
+
+  
 
   # write out generated template
   rendered_template = generate_readme(README_PATH, curr_date, link, question_name, question_dict)
@@ -31,10 +33,10 @@ def main():
   return rendered_template
 
 def build_file_path(date, question_name):
-  dir_name = 'Daily_Challenge/{}/{}'.format(date.year,date.strftime("%B")) 
+  dir_name = 'Daily_Challenge/{}/{}/'.format(date.year,date.strftime("%B")) 
   base_filename = '{}.{}'.format(date.day, question_name).replace(" ", "_")
   suffix = '.md'
-  return os.path.join(dir_name+'/', base_filename + suffix)
+  return os.path.join(dir_name, base_filename + suffix)
   
 if __name__ == '__main__':
   template = main()

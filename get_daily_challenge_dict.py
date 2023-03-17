@@ -3,6 +3,8 @@ from pprint import pprint
 from gql import gql, Client
 from gql.transport.aiohttp import AIOHTTPTransport
 
+GRAPHQL_PATH = "graphql/"
+
 class LeetcodeQueryExecutor(object):
   def __init__(self):
     def load_query(path):
@@ -14,12 +16,17 @@ class LeetcodeQueryExecutor(object):
     # Create a GraphQL client using the defined transport
     self.client = Client(transport=transport,fetch_schema_from_transport=False)
     
+    # load all queries
     self.daily_challenge_query = load_query("daily_challenge_query.graphql")
     self.leetcode_question_query = load_query("leetcode_question_query.graphql")
-    
+    self.leetcode_question_query = load_query("get_question_submission.graphql")
+
+  def get_latest_submission(self, problem_id):
+    pass
+
   # generate leetcode dictionary to fill in template
   def __execute_query(self, query, variables=None):
-    result_dict = self.client.execute(document=query, variable_values=variables)
+    result_dict = self.client.execute(document=GRAPHQL_PATH+query, variable_values=variables)
     return result_dict
 
   def get_leetcode_dict(self):

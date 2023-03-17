@@ -14,7 +14,9 @@ def generate_readme(
   curr_date,
   link,
   question_name,
-  leetcode_dict
+  leetcode_dict,
+  explanation = "",
+  code_block = ""
 ):
   with open(FILE_PATH, "r", encoding="utf-8") as file:
     template = jinja2.Template(file.read())
@@ -31,10 +33,9 @@ def generate_readme(
     question_name_link=question_name.replace(" ","-"),
     link_to_problem=LEETCODE_BASE_URL+link,
     difficulty=difficulty,
-    difficulty_color=difficulty_color,
     description=leetcode_dict["content"],
     related_topics=enumerate(related_topics),
     related_topics_len=len(related_topics),
-    explanation="",
-    code_block=""
+    explanation=explanation,
+    code_block=code_block
   )
