@@ -3,12 +3,12 @@ from pprint import pprint
 from gql import gql, Client
 from gql.transport.aiohttp import AIOHTTPTransport
 
-GRAPHQL_PATH = "graphql/"
+GRAPHQL_PATH = "graphql/{}"
 
 class LeetcodeQueryExecutor(object):
   def __init__(self):
-    def load_query(path):
-      with open(path) as f:
+    def load_query(filename):
+      with open(GRAPHQL_PATH.format(filename)) as f:
         return gql(f.read())
       
     # Select your transport with a defund url endpoint
@@ -19,14 +19,14 @@ class LeetcodeQueryExecutor(object):
     # load all queries
     self.daily_challenge_query = load_query("daily_challenge_query.graphql")
     self.leetcode_question_query = load_query("leetcode_question_query.graphql")
-    self.leetcode_question_query = load_query("get_question_submission.graphql")
+    self.get_submissions = load_query("get_question_submissions.graphql")
 
   def get_latest_submission(self, problem_id):
     pass
 
   # generate leetcode dictionary to fill in template
   def __execute_query(self, query, variables=None):
-    result_dict = self.client.execute(document=GRAPHQL_PATH+query, variable_values=variables)
+    result_dict = self.client.execute(document=query, variable_values=variables)
     return result_dict
 
   def get_leetcode_dict(self):
