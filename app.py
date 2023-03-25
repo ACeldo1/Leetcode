@@ -3,16 +3,28 @@ from datetime import datetime, timezone
 import jinja2
 import shutil
 
+from leetcode_config import get_config
+
 from get_daily_challenge_dict import LeetcodeQueryExecutor as lc_executor
 from generate_daily_challenge_template import generate_readme
 
-CONFIG_PATH = os.getenv("RPN_CONFIG", "config.yaml")
+CONFIG_PATH = os.getenv("LC_CONFIG", "config.yaml")
 README_PATH = os.getenv("README_PATH", "Daily_Challenge/README.md")
-YAML_KEY_LEETCODE = "leetcode"
 
 def main():
+  # check config files first
+  # lc_config = None
+  # try:
+  lc_config = get_config()
+  # except Exception as e:
+  #   sys.exit("Invalid config file")
+  
+  # create leetcode executor class
+  lc = lc_config["leetcode"]
+  lc_exe = lc_executor(username=lc["username"], password=lc["password"])
+
   # get leetcode information 
-  leetcode_dict = lc_executor().get_leetcode_dict() 
+  leetcode_dict = lc_exe.get_leetcode_dict() 
   
   # get necessary variables from the object with leetcode question info
   date, link, question_dict = leetcode_dict["date"].split("-"), leetcode_dict["link"], leetcode_dict["question"]
@@ -23,8 +35,9 @@ def main():
   # build out file path
   FILE_PATH = build_file_path(curr_date, question_name)
   
-  # 
-  
+  # get synced code for daily challenge
+  question_id = question_dict["question_id"]
+  synced_code = lc_exe.get_synced_code(question_id)  
 
   # write out generated template
   rendered_template = generate_readme(README_PATH, curr_date, link, question_name, question_dict)
