@@ -34,7 +34,6 @@ class TemplateWriter:
     link,
     question_name,
     leetcode_dict,
-    explanation = "",
     code_block = "",
     notes = " "
   ):
@@ -57,7 +56,6 @@ class TemplateWriter:
       description=leetcode_dict["content"],
       related_topics=enumerate(related_topics),
       related_topics_len=len(related_topics),
-      explanation=explanation,
       code_block=code_block,
       notes=notes
     )
