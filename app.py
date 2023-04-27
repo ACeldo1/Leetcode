@@ -73,12 +73,7 @@ def main():
     question_data,
     code_block=synced_code
   )
-
-  # rendered_template = generate_readme(README_PATH, curr_date, link, question_name, question_data, code_block=synced_code)
-  # with open(FILE_PATH, "w") as file_writer:
-  #   file_writer.write(rendered_template)
-
-  # return rendered_template
+  
   
 if __name__ == '__main__':
   main()

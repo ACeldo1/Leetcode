@@ -35,7 +35,8 @@ class TemplateWriter:
     question_name,
     leetcode_dict,
     explanation = "",
-    code_block = ""
+    code_block = "",
+    notes = " "
   ):
     template = None
     with open(README_PATH, "r", encoding="utf-8") as file:
@@ -57,7 +58,8 @@ class TemplateWriter:
       related_topics=enumerate(related_topics),
       related_topics_len=len(related_topics),
       explanation=explanation,
-      code_block=code_block
+      code_block=code_block,
+      notes=notes
     )
 
     with open(self.FILE_PATH, "w", encoding="utf8") as file_writer:

@@ -1,5 +1,5 @@
 ## Table of Contents
-1. [Add Digits](#Add-Digits)
+1. [{{ question_name }}](#{{ question_name }})
 	- Link
 	- Description
 	- Test Cases
@@ -9,83 +9,21 @@
 	- Code
 3. [Notes](#Notes)
 
-## Add Digits
-#### <a href="https://leetcode.com/problems/add-digits/"> Link to Problem</a>
-## 2023-04-26
+## {{ question_name }}
+#### <a href="{{ link_to_problem }}"> Link to Problem</a>
+## {{ date }}
 
 ### Description
-Difficulty: Easy
+Difficulty: {{ difficulty }}
+{{ description }}
 
-<p>Given an integer <code>num</code>, repeatedly add all its digits until the result has only one digit, and return it.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = 38
-<strong>Output:</strong> 2
-<strong>Explanation:</strong> The process is
-38 --&gt; 3 + 8 --&gt; 11
-11 --&gt; 1 + 1 --&gt; 2 
-Since 2 has only one digit, return it.
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = 0
-<strong>Output:</strong> 0
-</pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>0 &lt;= num &lt;= 2<sup>31</sup> - 1</code></li>
-</ul>
-
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong> Could you do it without any loop/recursion in <code>O(1)</code> runtime?</p>
-
+Topic Tags: {% for topic in related_topics %}{{ topic[1].name }}{% if topic[0] != related_topics_len-1 %},{%endif%} {%endfor%}
 
 Topic Tags: Math, Simulation, Number Theory 
 	
 ### Code
-	
-	'''/**
-10 -> 1
-11 -> 2
-12 -> 3
-13 -> 4
-14 -> 5
-15 -> 6
-16 -> 7
-17 -> 8
-18 -> 9
-19 -> 10 -> 1
-20 -> 2
-21 -> 3
-22 -> 4
-..
-
- 3 -> 00011
- 8 -> 01000
-11 -> 01011
-
-1349 -> 17 -> 8 
-48245 -> 23 -> 5
-*/
-
-/**
-starting at 10, we have a result of 1
-increment the current number by 1, and the result increases as well */
-class Solution {
-  public int addDigits(int num) {
-    if(num == 0) return 0;
-    int res = num%9;
-    return res == 0 ? 9 : res;
-  }
-}'''
+  {{ explanation }}
+	'''{{ code_block }}'''
 
 ### Notes
-	* 
+	{{ notes }}
