@@ -1,12 +1,13 @@
 import os
 import sys
 import yaml
-from 
 
 CONFIG_PATH = os.getenv("LC_CONFIG", "config.yml")
 YAML_KEY_LEETCODE = "leetcode"
 YAML_KEY_LC_USERNAME = "username"
-YAML_KEY_LC_PASSWORD = "leetcode"
+YAML_KEY_LC_PASSWORD = "password"
+YAML_KEY_LC_LANGUAGE = "language"
+YAML_KEY_LC_SESSION = "leetcode_session"
 
 def get_config():
 
@@ -29,16 +30,22 @@ def get_config():
     return config
   
   def validate_config(config):
-    if YAML_KEY_LEETCODE not in config or not isinstance(YAML_KEY_LEETCODE, dict):
+    if YAML_KEY_LEETCODE not in config or not isinstance(config[YAML_KEY_LEETCODE], dict):
       sys.exit("Invalid config: missing leetcode key")
       
     leetcode = config["leetcode"]
     
-    if YAML_KEY_LC_USERNAME not in leetcode or not isinstance(YAML_KEY_LC_USERNAME, str):
+    if YAML_KEY_LC_USERNAME not in leetcode or not isinstance(leetcode[YAML_KEY_LC_USERNAME], str):
       sys.exit("Invalid config: missing leetcode -> username key")
 
-    if YAML_KEY_LC_PASSWORD not in leetcode or not isinstance(YAML_KEY_LC_PASSWORD, str):
+    if YAML_KEY_LC_PASSWORD not in leetcode or not isinstance(leetcode[YAML_KEY_LC_PASSWORD], str):
       sys.exit("Invalid config: missing leetcode -> password key")
+
+    if YAML_KEY_LC_LANGUAGE not in leetcode or not isinstance(leetcode[YAML_KEY_LC_LANGUAGE], int):
+      sys.exit("Invalid config: missing leetcode -> language key")
+
+    if YAML_KEY_LC_SESSION not in leetcode or not isinstance(leetcode[YAML_KEY_LC_SESSION], str):
+      sys.exit("Invalid config: missing leetcode -> leetcode_session key")
 
     return config
   

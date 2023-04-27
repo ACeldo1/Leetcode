@@ -1,0 +1,28 @@
+leetcode:
+  username:
+  password: 
+  language: 
+  leetcode_session:
+
+"""
+legend for <key,val> pairs:
+<C++,0>
+<Java,1>
+<Python,2>
+<Python3,3>
+<C,4>
+<C#,5>
+<JavaScript,6>
+<Ruby,7>
+<Swift,8>
+<Go,9>
+<Scala,10>
+<Kotlin,11>
+<Rust,12>
+<PHP,13>
+<TypeScript,14>
+<Racket,15>
+<Erlang,16>
+<Elixir,17>
+<Dart,18>
+"""
