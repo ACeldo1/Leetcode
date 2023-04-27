@@ -20,7 +20,8 @@ Difficulty: {{ difficulty }}
 Topic Tags: {% for topic in related_topics %}{{ topic[1].name }}{% if topic[0] != related_topics_len-1 %},{%endif%} {%endfor%}
 	
 ### Code
-```{{ code_block }}```
+  ```{{ code_block }}
+	```
 
 ### Notes
 {{ notes }}
