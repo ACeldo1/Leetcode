@@ -1,5 +1,5 @@
 ## Table of Contents
-1. [{{ question_name }}](#{{ question_name }})
+1. [{{ question_name }}](#{{ question_name_link }})
 	- Link
 	- Description
 	- Test Cases
