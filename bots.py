@@ -210,8 +210,6 @@ class SubmissionBot(LeetBot):
     return response
 
 if __name__ == '__main__':
-  username = 'andyceldo1'
-  password = 'xxxxxxxxx'
   lc_session = ' '
   graphql_queries = GraphQLQueries()
   # str_q = graphql_queries.get_query_as_str("syncedCode")
