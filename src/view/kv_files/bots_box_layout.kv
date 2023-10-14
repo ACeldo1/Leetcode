@@ -1,0 +1,78 @@
+# view/kv_files/bots_box_layout.kv
+
+<LeetcodeBotsBoxLayout>:
+  padding: "5dp", "10dp"
+  size_hint: 1, .6
+  orientation: "vertical"
+  Label:
+    text: "Template Options"
+    size_hint: 1, .1
+    font_size: "20sp"
+    color: 0, 0, 0, 1
+  LeetcodeBotsScrollView:
+  RunCheckedOptionsButton:
+    id:run_checked_options_button
+  
+<RunCheckedOptionsButton>:
+  canvas:
+    Color:
+      rgba: 0, 1, 0.249, 1
+    Rectangle:
+      pos: self.pos
+      size: self.size
+  size_hint: .3, .2
+  pos_hint: {'x': .5 - .15}
+  on_press: root.parent.run_bot_scripts()
+  Label:
+    text: "Run Checked Options!"
+    color: 1, 1, 1, 1
+    pos: root.pos
+    size: root.size
+
+<LeetcodeBotsScrollView>:
+  canvas.before:
+    Color:
+      rgba: 0.44, 0.44, 0.44, 1
+    Rectangle:
+      pos: self.pos
+      size: self.size
+  id: bots_scrollview
+  size_hint: 1, .6
+  do_scroll_x: False
+  do_scroll_y: True
+  BotsScrollContentBoxLayout:
+
+<BotsScrollContentBoxLayout>:
+  orientation: "vertical"
+  spacing: 10
+  size_hint_y: None
+  height: self.minimum_height
+  DailyChallengeBoxLayout:
+
+<DailyChallengeBoxLayout>:
+  canvas:
+    Color:
+      rgba: 0, 0, 0, 1
+    Rectangle:
+      size: self.size
+      pos: self.pos
+  spacing: 10
+  size_hint_y: None
+  id: daily_challenge_box_layout
+  Label:
+    text: "Daily Challenge"
+    text_size: self.size
+    halign: 'center'
+    valign: "middle"
+    size_hint_x: .4
+  ProgressBar:
+    id: daily_challenge_progressbar
+    size_hint: .5, None
+    value: 0
+    max: 100
+  CheckBox:
+    id: daily_challenge_checkbox
+    active: False
+    size_hint: .1, None
+    on_active: root.parent.parent.parent.daily_challenge_checkbox_callback(self.active, root.ids.daily_challenge_progressbar)
+  

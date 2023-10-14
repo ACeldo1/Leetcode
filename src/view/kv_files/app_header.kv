@@ -1,0 +1,28 @@
+# view/kv_files/app_header.kv
+
+<AppHeader>:
+  BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+      spacing: 0
+      orientation: 'horizontal'
+      Label:
+        text: "Leet"
+        font_size: "60sp"
+        text_size: root.width/2, None
+        size: self.texture_size
+        color: 0, 0, 0, 1
+        halign: "right" 
+      Label:
+        text: "Desk"
+        font_size: "60sp"
+        text_size: root.width/2, None
+        size: self.texture_size
+        color: 0.85, 0.35, 0, 1
+    Label: 
+      text: "Generate Markdown Files Locally with Your Github Solutions in a few clicks!"
+      font_size: "20sp"
+      text_size: root.width, None
+      size: self.texture_size
+      color: 0, 0, 0, 1
+      halign: "center"

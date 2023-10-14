@@ -2,8 +2,7 @@ leetcode:
   username:
   password: 
   language: 
-  leetcode_session:
-
+  
 """
 legend for <key,val> pairs:
 <C++,0>

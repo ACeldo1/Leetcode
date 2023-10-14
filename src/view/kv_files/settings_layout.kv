@@ -1,0 +1,103 @@
+# view/kv_files/settings_layout.kv
+
+<SettingsScreenBoxLayout>:
+  orientation: 'vertical'
+  padding: "5dp", "10dp"
+  size_hint: 1, .6
+  Label:
+    text: "Settings"
+    size_hint: 1, .2
+    font_size: "24sp"
+    color: 0, 0, 0, 1
+  ConfigSettingsScrollView:
+
+<ConfigSettingsScrollView>:
+  size_hint: 1, .8
+  do_scroll_x: False
+  do_scroll_y: True
+  ConfigSettingsBoxLayout:
+  
+<ConfigSettingsBoxLayout>:
+  orientation: "vertical"
+  spacing: 10
+  size_hint_y: None
+  height: self.minimum_height
+  LeetcodeUsernameBoxLayout:
+  LeetcodePasswordBoxLayout:
+  LeetcodeLanguageBoxLayout:
+
+<LeetcodeUsernameBoxLayout>:
+  canvas:
+    Color:
+      rgba: 0, 0, 0, 1
+    Rectangle:
+      size: self.size
+      pos: self.pos
+  spacing: 10
+  size_hint_y: None
+
+  Label:
+    text: "Leetcode Username"
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+    size_hint_x: .4
+  
+  TextInput:
+    text: "placeholder text"
+  
+  Button:
+    text: "Update"
+    size_hint: .2, .2
+    pos_hint: {"x": 1, "y": .4}
+
+
+<LeetcodePasswordBoxLayout>:
+  canvas:
+    Color:
+      rgba: 0, 0, 0, 1
+    Rectangle:
+      size: self.size
+      pos: self.pos
+  spacing: 10
+  size_hint_y: None
+  
+  Label:
+    text: "Leetcode Password"
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+    size_hint_x: .4
+  
+  TextInput:
+    text: "placeholder text"
+  
+  Button:
+    text: "Update"
+    size_hint: .2, .2
+    pos_hint: {"x": 1, "y": .4}
+
+<LeetcodeLanguageBoxLayout>:
+  canvas:
+    Color:
+      rgba: 0, 0, 0, 1
+    Rectangle:
+      size: self.size
+      pos: self.pos
+  spacing: 10
+  size_hint_y: None
+
+  Label:
+    text: "Programming Language"
+    text_size: self.size
+    halign: 'center'
+    valign: 'middle'
+    size_hint_x: .4
+    
+  TextInput:
+    text: "placeholder text"
+  
+  Button:
+    text: "Update"
+    size_hint: .2, .2
+    pos_hint: {"x": 1, "y": .4}

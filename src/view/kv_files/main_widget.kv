@@ -1,0 +1,46 @@
+# view/kv_files/main_widget.kv
+
+<MainWidget>:
+  canvas.before:
+    Color:
+      rgba: 0.41, 0.41, 0.41, 1
+    Rectangle:
+      pos: self.pos
+      size: self.size
+  padding: "30dp", "0dp"
+  spacing: "10dp"
+  orientation: "vertical"
+  
+  ScreenManager:
+    id: screen_manager
+    
+    # Main App Screen, where users can run selected options
+    Screen:
+      name: 'App Home'
+      
+      BoxLayout:
+        orientation: 'vertical'
+        Button:
+          text: "Configuration"
+          on_release: root.switch_to_screen('Settings')
+          size_hint: .1, .1 
+          pos_hint: {'x': 0, 'y': 0}
+        AppHeader:
+          size_hint_y: .2
+        # LeetcodeSessionBoxLayout:
+          # size_hint_y: .2
+        LeetcodeBotsBoxLayout:
+          size_hint_y: .7
+
+    Screen:
+      name: 'Settings'
+      
+      BoxLayout:
+        orientation: 'vertical'
+        Button:
+          text: "Back To Home"
+          on_release: root.switch_to_screen('App Home')
+          size_hint: .1, .1
+          pos_hint: {'x': 0, 'y': 0}
+        SettingsScreenBoxLayout:
+          size_hint_y: .7

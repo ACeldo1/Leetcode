@@ -1,0 +1,6 @@
+query syncedCode($questionId: Int!, $lang: Int!) {
+  syncedCode(questionId: $questionId, lang: $lang) {
+    timestamp
+    code
+  }
+}

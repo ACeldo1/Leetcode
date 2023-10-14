@@ -1,0 +1,6 @@
+query questionNote($titleSlug: String!) {
+  question(titleSlug: $titleSlug) {
+    questionId
+    note
+  }
+}

@@ -1,0 +1,30 @@
+# view/kv_files/leetcode_session_box_layout.kv
+
+<LeetcodeSessionBoxLayout>:
+  size_hint: .5, .3
+  pos_hint: {"x": .5 - .25}
+  Label:
+    text: "Get Leetcode Session"
+    # size: "100dp", "80dp"
+    # pos: "200dp", "300dp"
+    size_hint_x: .8
+    pos_hint: {"x": 0}
+    color: 0, 0, 0, 1
+  Button:
+    canvas:
+      Color:
+        rgba: 0.36, 0.36, 0.36, 1
+      Rectangle:
+        pos: self.pos
+        size: self.size
+    # size: "100dp", "80dp"
+    # pos: "100dp", "200dp"
+    # size_hint: None, None
+    size_hint: .2, .2
+    pos_hint: {"x": 1, "y": .4}
+    Label:
+      text: "Run"
+      color: 0.75, 0.55, 0, 1
+      pos: self.parent.pos
+      size: self.parent.size
+    
